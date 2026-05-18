@@ -6,12 +6,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Spline from '@splinetool/react-spline';
 import styles from './page.module.css';
 
-// Import local images directly from assets
-import heroPoster from './assets/hero_poster.png';
-import medCourse1 from './assets/med_course_1.png';
-import medCourse2 from './assets/med_course_2.png';
-import medCourse3 from './assets/med_course_3.png';
-
 // Inline SVGs for no-dependency icons
 const VolumeXIcon = () => (
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
