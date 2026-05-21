@@ -792,3 +792,10 @@
   margin-left: 2px;
   color: #1067b4;
 }
+
+.logoText {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #0D3B6E;
+  letter-spacing: 0.5px;
+}

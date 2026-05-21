@@ -252,10 +252,11 @@ export default function DiagnosticandoVidaLanding() {
   <Image
     src="/logo.png"
     alt="Diagnosticando Vida"
-    width={120}
+    width={48}
     height={48}
     style={{ objectFit: 'contain' }}
   />
+  <span className={styles.logoText}>DX Vida</span>
 </div>
   <div className={styles.navLinks}>
     <a href="#inicio" className={styles.navLink}>Inicio</a>
