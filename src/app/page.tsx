@@ -284,26 +284,44 @@ export default function DiagnosticandoVidaLanding() {
 
   {/* Contenido encima */}
   <motion.div
-    className={styles.heroContent}
+  className={styles.heroContent}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.5 }}
+>
+  <motion.h1
+    variants={fadeInUp}
     initial="hidden"
-    animate={!isLoading ? "visible" : "hidden"}
-    variants={staggerContainer}
+    animate="visible"
+    transition={{ duration: 0.7, delay: 0.2 }}
+    className={styles.heroTitle}
   >
-    <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
-      Tú sí puedes confiar en tu <span>criterio clínico.</span>
-    </motion.h1>
-    <motion.p variants={fadeInUp} className={styles.heroSubtitle}>
-      Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
-    </motion.p>
-    <motion.div variants={fadeInUp} className={styles.heroButtons}>
-      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-        <WhatsAppIcon /> Postular a un Cupo
-      </a>
-      <a href="#online" className={styles.secondaryBtn}>
-        Ver Metodología <ChevronRightIcon />
-      </a>
-    </motion.div>
+    Tú sí puedes confiar en tu <span>criterio clínico.</span>
+  </motion.h1>
+
+  <motion.p
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.5 }}
+    className={styles.heroSubtitle}
+  >
+    Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
+  </motion.p>
+
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.7, delay: 0.8 }}
+    className={styles.heroButtons}
+  >
+    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+      <WhatsAppIcon /> Postular a un Cupo
+    </a>
+    <a href="#online" className={styles.secondaryBtn}>
+      Ver Metodología <ChevronRightIcon />
+    </a>
   </motion.div>
+</motion.div>
 
   {/* Botón mute */}
   <button className={styles.muteBtn} onClick={toggleMute} aria-label="Activar Sonido">
