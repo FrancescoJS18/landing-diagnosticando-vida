@@ -349,7 +349,7 @@ export default function DiagnosticandoVidaLanding() {
       animate={{ textAlign: isHovered ? 'center' : 'left' }}
       transition={{ duration: 0.5 }}
     >
-      Tú sí puedes confiar en tu <span>criterio clínico.</span>
+      Domina la Anatomía que <span>salva vidas.</span>
     </motion.h1>
 
     <motion.p
@@ -357,7 +357,7 @@ export default function DiagnosticandoVidaLanding() {
       animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
       transition={{ duration: 0.4, delay: 0.1 }}
     >
-      Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
+      Aprende a leer radiografías, tomografías y ecografías como un especialista. Entrenamiento 100% online con casos clínicos reales.
     </motion.p>
 
     <motion.div
@@ -401,15 +401,15 @@ export default function DiagnosticandoVidaLanding() {
         viewport={{ once: true, amount: 0.2 }}
         variants={staggerContainer}
       >
-        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>El Miedo a Equivocarte se Elimina con <span>Práctica Real</span></motion.h2>
+        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>La Anatomía Real No se Aprende en <span>Libros</span></motion.h2>
         <div className={styles.featuresGrid}>
           <motion.div variants={fadeInUp} className={styles.featureCard}>
             <div className={styles.featureIcon}>
               <AlertCircleIcon />
             </div>
-            <h3 className={styles.featureTitle}>Casos de Vida o Muerte</h3>
+            <h3 className={styles.featureTitle}>Radiografías e Imágenes Reales</h3>
             <p className={styles.featureText}>
-              Olvídate de casos de libro perfectos. Te enfrentarás a tomografías y ecografías reales de urgencias, donde un error de lectura cambia el pronóstico del paciente.
+                Nada de dibujos perfectos. Te enfrentarás a tomografías, ecografías y radiografías de pacientes reales donde cada detalle cuenta.
             </p>
           </motion.div>
 
@@ -417,9 +417,9 @@ export default function DiagnosticandoVidaLanding() {
             <div className={styles.featureIcon}>
               <UsersIcon />
             </div>
-            <h3 className={styles.featureTitle}>Cero Tolerancia a la Inseguridad</h3>
+            <h3 className={styles.featureTitle}>Diagnóstico Bajo Presión</h3>
             <p className={styles.featureText}>
-              Nuestros especialistas te presionarán como en una guardia real. Aprenderás a tomar decisiones diagnósticas rápidas bajo estrés y con total seguridad.
+                Nuestros especialistas te entrenan como en una guardia real. Tomarás decisiones diagnósticas rápidas y precisas bajo estrés.
             </p>
           </motion.div>
 
@@ -427,9 +427,9 @@ export default function DiagnosticandoVidaLanding() {
             <div className={styles.featureIcon}>
               <EyeIcon />
             </div>
-            <h3 className={styles.featureTitle}>Ojo Clínico de Especialista</h3>
+            <h3 className={styles.featureTitle}>Ojo Clínico Especializado</h3>
             <p className={styles.featureText}>
-              Simuladores que calibran tu vista para detectar anomalías milimétricas. Evita errores fatales por falta de experiencia visual en el monitor.
+                Calibra tu vista para detectar anomalías milimétricas en imágenes médicas. El mismo ojo que usan los radiólogos expertos.
             </p>
           </motion.div>
         </div>
@@ -578,9 +578,9 @@ export default function DiagnosticandoVidaLanding() {
           </div>
         </motion.div>
 
-        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>Domina la Guardia desde <span>Cualquier Lugar</span></motion.h2>
+        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>Anatomía Clínica desde <span>Cualquier Lugar</span></motion.h2>
         <motion.p variants={fadeInUp} className={styles.gallerySubtitle}>
-          Nuestras clases son 100% online y están diseñadas para encajar en la caótica agenda de un médico. Tu guardia no espera, tu preparación tampoco debería.
+        Clases 100% online con casos clínicos reales. Aprende anatomía aplicada al diagnóstico por imágenes en tu propio horario.        
         </motion.p>
 
         <div className={styles.onlineGrid}>
