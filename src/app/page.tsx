@@ -258,66 +258,53 @@ export default function DiagnosticandoVidaLanding() {
       </nav>
 
       {/* Hero Section */}
-      <section id="inicio" className={styles.hero}>
-        <motion.div 
-          className={styles.heroContent}
-          initial="hidden"
-          animate={!isLoading ? "visible" : "hidden"}
-          variants={staggerContainer}
-        >
-          <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
-            Un mal diagnóstico puede costar una <span>vida</span> (y tu carrera).
-          </motion.h1>
-          <motion.p variants={fadeInUp} className={styles.heroSubtitle}>
-            La teoría de los libros no te salvará a las 3 AM en urgencias. Nuestro entrenamiento intensivo online está diseñado para que NUNCA más dudes frente a un monitor. Solo 50 cupos por ciclo.
-          </motion.p>
-          <motion.div variants={fadeInUp} className={styles.heroButtons}>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-              <WhatsAppIcon /> Postular a un Cupo
-            </a>
-            <a href="#online" className={styles.secondaryBtn}>
-              Ver Metodología <ChevronRightIcon />
-            </a>
-          </motion.div>
-        </motion.div>
+<section id="inicio" className={styles.hero}>
+  {/* Video de fondo */}
+  <video
+    ref={videoRef}
+    className={styles.heroBgVideo}
+    autoPlay
+    muted={isMuted}
+    loop
+    playsInline
+    controls={false}
+    onClick={handlePlayVideo}
+  >
+    <source src="/Video_Hero.mp4" type="video/mp4" />
+  </video>
 
-        <motion.div 
-          className={styles.heroVideoContainer}
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={!isLoading ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-        >
-          <video
-            ref={videoRef}
-            className={styles.heroVideo}
-            poster="/Mi_Poster.jpg"
-            autoPlay
-            muted={isMuted}
-            loop
-            playsInline
-            controls={false}
-            onClick={handlePlayVideo}
-          >
-            <source src="/Video_Hero.mp4" type="video/mp4" />
-            Tu navegador no soporta el elemento de video.
-          </video>
+  {/* Overlay oscuro */}
+  <div className={styles.heroOverlay} />
 
-          <button className={styles.muteBtn} onClick={toggleMute} aria-label="Activar Sonido">
-            {isMuted ? <VolumeXIcon /> : <Volume2Icon />}
-            {isMuted && <span style={{ marginLeft: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>Activar Sonido</span>}
-          </button>
+  {/* Contenido encima */}
+  <motion.div
+    className={styles.heroContent}
+    initial="hidden"
+    animate={!isLoading ? "visible" : "hidden"}
+    variants={staggerContainer}
+  >
+    <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
+      Un mal diagnóstico puede costar una <span>vida</span> (y tu carrera).
+    </motion.h1>
+    <motion.p variants={fadeInUp} className={styles.heroSubtitle}>
+      La teoría de los libros no te salvará a las 3 AM en urgencias. Nuestro entrenamiento intensivo online está diseñado para que NUNCA más dudes frente a un monitor. Solo 50 cupos por ciclo.
+    </motion.p>
+    <motion.div variants={fadeInUp} className={styles.heroButtons}>
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+        <WhatsAppIcon /> Postular a un Cupo
+      </a>
+      <a href="#online" className={styles.secondaryBtn}>
+        Ver Metodología <ChevronRightIcon />
+      </a>
+    </motion.div>
+  </motion.div>
 
-          {!isPlaying && (
-            <div className={styles.playOverlay} onClick={handlePlayVideo}>
-              <div className={styles.playIcon}>
-                <div style={{ marginLeft: '6px', display: 'flex' }}>
-                  <PlayIcon />
-                </div>
-              </div>
-            </div>
-          )}
-        </motion.div>
-      </section>
+  {/* Botón mute */}
+  <button className={styles.muteBtn} onClick={toggleMute} aria-label="Activar Sonido">
+    {isMuted ? <VolumeXIcon /> : <Volume2Icon />}
+    {isMuted && <span style={{ marginLeft: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>Activar Sonido</span>}
+  </button>
+</section>
 
       {/* Features Section - Attacking the pain points */}
       <motion.section 
