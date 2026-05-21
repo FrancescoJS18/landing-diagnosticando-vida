@@ -105,6 +105,7 @@ const ChevronRightLargeIcon = () => (
 
 export default function DiagnosticandoVidaLanding() {
   const [isLoading, setIsLoading] = useState(true);
+  const [scrolled, setScrolled] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -127,6 +128,12 @@ export default function DiagnosticandoVidaLanding() {
     }, 4500); // Increased time to see the 3D Spline
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+  const handleScroll = () => setScrolled(window.scrollY > 10);
+  window.addEventListener('scroll', handleScroll);
+  return () => window.removeEventListener('scroll', handleScroll);
+}, []);
   
   // Drag logic for reels
   const carouselRef = useRef<HTMLDivElement>(null);
@@ -239,24 +246,23 @@ export default function DiagnosticandoVidaLanding() {
 
     <div className={styles.container}>
       {/* Navbar */}
-      <nav className={styles.navbar}>
-        <div className={styles.logo}>
-          <div className={styles.logoIcon}>
-            <ActivityIcon />
-          </div>
-          Diagnosticando Vida
-        </div>
-        <div className={styles.navLinks}>
-          <a href="#inicio" className={styles.navLink}>Inicio</a>
-          <a href="#dolor" className={styles.navLink}>¿Inseguro?</a>
-          <a href="#casos-reales" className={styles.navLink}>Casos Reales</a>
-          <a href="#nosotros" className={styles.navLink}>Quiénes Somos</a>
-        </div>
-        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${styles.primaryBtn} ${styles.navBtn}`} style={{ padding: '0.6rem 1.2rem', fontSize: '0.95rem' }}>
-          <WhatsAppIcon /> Escríbenos
-        </a>
-      </nav>
-
+<nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
+  <div className={styles.logo}>
+    <div className={styles.logoIcon}>
+      <ActivityIcon />
+    </div>
+    Diagnosticando Vida
+  </div>
+  <div className={styles.navLinks}>
+    <a href="#inicio" className={styles.navLink}>Inicio</a>
+    <a href="#dolor" className={styles.navLink}>¿Inseguro? <span className={styles.navArrow}>▾</span></a>
+    <a href="#casos-reales" className={styles.navLink}>Casos Reales <span className={styles.navArrow}>▾</span></a>
+    <a href="#nosotros" className={styles.navLink}>Quiénes Somos</a>
+  </div>
+  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${styles.primaryBtn} ${styles.navBtn}`} style={{ padding: '0.6rem 1.2rem', fontSize: '0.95rem' }}>
+    <WhatsAppIcon /> Escríbenos
+  </a>
+</nav>
       {/* Hero Section */}
 <section id="inicio" className={styles.hero}>
   {/* Video de fondo */}
@@ -284,10 +290,10 @@ export default function DiagnosticandoVidaLanding() {
     variants={staggerContainer}
   >
     <motion.h1 variants={fadeInUp} className={styles.heroTitle}>
-      Un mal diagnóstico puede costar una <span>vida</span> (y tu carrera).
+      Tú sí puedes confiar en tu <span>criterio clínico.</span>
     </motion.h1>
     <motion.p variants={fadeInUp} className={styles.heroSubtitle}>
-      La teoría de los libros no te salvará a las 3 AM en urgencias. Nuestro entrenamiento intensivo online está diseñado para que NUNCA más dudes frente a un monitor. Solo 50 cupos por ciclo.
+      Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
     </motion.p>
     <motion.div variants={fadeInUp} className={styles.heroButtons}>
       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
