@@ -106,6 +106,7 @@ const ChevronRightLargeIcon = () => (
 export default function DiagnosticandoVidaLanding() {
   const [isLoading, setIsLoading] = useState(true);
   const [scrolled, setScrolled] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const [isPlaying, setIsPlaying] = useState(true);
   const [isMuted, setIsMuted] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -264,7 +265,14 @@ export default function DiagnosticandoVidaLanding() {
   </a>
 </nav>
       {/* Hero Section */}
-<section id="inicio" className={styles.hero}>
+<section
+  id="inicio"
+  className={styles.hero}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+  onTouchStart={() => setIsHovered(true)}
+  onTouchEnd={() => setTimeout(() => setIsHovered(false), 2000)}
+>
   {/* Video de fondo */}
   <video
     ref={videoRef}
@@ -274,7 +282,6 @@ export default function DiagnosticandoVidaLanding() {
     loop
     playsInline
     controls={false}
-    onClick={handlePlayVideo}
   >
     <source src="/Video_Hero.mp4" type="video/mp4" />
   </video>
@@ -282,52 +289,70 @@ export default function DiagnosticandoVidaLanding() {
   {/* Overlay oscuro */}
   <div className={styles.heroOverlay} />
 
-  {/* Contenido encima */}
+  {/* Contenido animado */}
   <motion.div
-  className={styles.heroContent}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.5 }}
->
-  <motion.h1
-    variants={fadeInUp}
-    initial="hidden"
-    animate="visible"
-    transition={{ duration: 0.7, delay: 0.2 }}
-    className={styles.heroTitle}
+    className={styles.heroContent}
+    animate={isHovered ? {
+      bottom: '50%',
+      transform: 'translateY(50%)',
+      alignItems: 'center',
+      scale: 1,
+      opacity: 1,
+    } : {
+      bottom: '2.5rem',
+      transform: 'translateY(0%)',
+      alignItems: 'flex-start',
+      scale: 0.85,
+      opacity: 0.9,
+    }}
+    transition={{ duration: 0.5, ease: 'easeInOut' }}
   >
-    Tú sí puedes confiar en tu <span>criterio clínico.</span>
-  </motion.h1>
+    <motion.h1
+      className={styles.heroTitle}
+      animate={{ textAlign: isHovered ? 'center' : 'left' }}
+      transition={{ duration: 0.5 }}
+    >
+      Tú sí puedes confiar en tu <span>criterio clínico.</span>
+    </motion.h1>
 
-  <motion.p
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7, delay: 0.5 }}
-    className={styles.heroSubtitle}
-  >
-    Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
-  </motion.p>
+    <motion.p
+      className={styles.heroSubtitle}
+      animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
+      transition={{ duration: 0.4, delay: 0.1 }}
+    >
+      Inscripciones abiertas · Solo 50 cupos por ciclo. Entrena con casos reales y deja de dudar frente a un monitor para siempre.
+    </motion.p>
 
-  <motion.div
-    initial={{ opacity: 0, y: 30 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 0.7, delay: 0.8 }}
-    className={styles.heroButtons}
-  >
-    <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
-      <WhatsAppIcon /> Postular a un Cupo
-    </a>
-    <a href="#online" className={styles.secondaryBtn}>
-      Ver Metodología <ChevronRightIcon />
-    </a>
+    <motion.div
+      className={styles.heroButtons}
+      animate={{ opacity: isHovered ? 1 : 0, y: isHovered ? 0 : 10 }}
+      transition={{ duration: 0.4, delay: 0.2 }}
+    >
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.primaryBtn}>
+        <WhatsAppIcon /> Postular a un Cupo
+      </a>
+      <a href="#online" className={styles.secondaryBtn}>
+        Ver Metodología <ChevronRightIcon />
+      </a>
+    </motion.div>
   </motion.div>
-</motion.div>
 
-  {/* Botón mute */}
-  <button className={styles.muteBtn} onClick={toggleMute} aria-label="Activar Sonido">
-    {isMuted ? <VolumeXIcon /> : <Volume2Icon />}
-    {isMuted && <span style={{ marginLeft: '8px', fontSize: '0.9rem', fontWeight: 'bold' }}>Activar Sonido</span>}
-  </button>
+  {/* Controles del video - abajo al centro */}
+  <div className={styles.heroControls}>
+    <button className={styles.heroControlBtn} onClick={handlePlayVideo} aria-label="Play/Pause">
+      {isPlaying ? (
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <rect x="6" y="4" width="4" height="16"></rect>
+          <rect x="14" y="4" width="4" height="16"></rect>
+        </svg>
+      ) : (
+        <PlayIcon />
+      )}
+    </button>
+    <button className={styles.heroControlBtn} onClick={toggleMute} aria-label="Mute/Unmute">
+      {isMuted ? <VolumeXIcon /> : <Volume2Icon />}
+    </button>
+  </div>
 </section>
 
       {/* Features Section - Attacking the pain points */}
