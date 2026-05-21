@@ -17,7 +17,7 @@
   box-shadow: 0 2px 20px rgba(0,0,0,0.15);
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 200;
 }
 
 .logo {
@@ -79,13 +79,14 @@
 .hero {
   position: relative;
   min-height: 100vh;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .heroBgVideo {
-  position: fixed;
+  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
