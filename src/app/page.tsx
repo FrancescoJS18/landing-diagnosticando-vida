@@ -250,9 +250,9 @@ export default function DiagnosticandoVidaLanding() {
 <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
   <div className={styles.logo}>
   <Image
-    src="/DX VIDA LOGO.png"
+    src="/logo.png"
     alt="Diagnosticando Vida"
-    width={48}
+    width={120}
     height={48}
     style={{ objectFit: 'contain' }}
   />
