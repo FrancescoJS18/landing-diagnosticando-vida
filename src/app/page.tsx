@@ -249,11 +249,14 @@ export default function DiagnosticandoVidaLanding() {
       {/* Navbar */}
 <nav className={`${styles.navbar} ${scrolled ? styles.navbarScrolled : ''}`}>
   <div className={styles.logo}>
-    <div className={styles.logoIcon}>
-      <ActivityIcon />
-    </div>
-    Diagnosticando Vida
-  </div>
+  <Image
+    src="/DX VIDA LOGO.png"
+    alt="Diagnosticando Vida"
+    width={48}
+    height={48}
+    style={{ objectFit: 'contain' }}
+  />
+</div>
   <div className={styles.navLinks}>
     <a href="#inicio" className={styles.navLink}>Inicio</a>
     <a href="#dolor" className={styles.navLink}>¿Inseguro? <span className={styles.navArrow}>▾</span></a>
