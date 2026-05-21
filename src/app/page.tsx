@@ -217,7 +217,7 @@ export default function DiagnosticandoVidaLanding() {
     }}
   >
     {/* Imágenes de anatomía con fade */}
-    {['/anat1.jpg', '/anat2.jpg', '/anat3.jpg'].map((src, i) => (
+    {['/anat1.jpeg', '/anat2.jpeg', '/anat3.jpeg'].map((src, i) => (
       <motion.img
         key={src}
         src={src}
@@ -260,17 +260,20 @@ export default function DiagnosticandoVidaLanding() {
       >
         Diagnosticando Vida
       </motion.div>
-      <motion.div
-        initial={{ width: 0 }}
-        animate={{ width: 280 }}
-        transition={{ duration: 1.6, ease: "easeInOut", delay: 0.3 }}
-        style={{
-          height: '3px', backgroundColor: '#31ccd3',
-          marginTop: '1.5rem', borderRadius: '5px',
-          boxShadow: '0 0 15px rgba(49, 204, 211, 0.8)'
-        }}
-      />
-    </div>
+      <motion.svg
+  width="250" height="60" viewBox="0 0 200 60"
+  fill="none" stroke="#31ccd3" strokeWidth="3"
+  strokeLinecap="round" strokeLinejoin="round"
+  style={{ marginTop: '1.5rem', filter: 'drop-shadow(0px 0px 8px rgba(49,204,211,0.8))' }}
+>
+  <motion.path
+    d="M 0 30 L 30 30 L 45 10 L 60 55 L 75 5 L 90 45 L 105 30 L 200 30"
+    initial={{ pathLength: 0, opacity: 0 }}
+    animate={{ pathLength: 1, opacity: 1 }}
+    transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
+  />
+</motion.svg>
+  </div>
   </motion.div>
 )}
       </AnimatePresence>
