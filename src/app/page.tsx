@@ -126,7 +126,7 @@ export default function DiagnosticandoVidaLanding() {
     // Simulate initial loading for Apple-like entrance
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 4500); // Increased time to see the 3D Spline
+    }, 2000); // Increased time to see the 3D Spline
     return () => clearTimeout(timer);
   }, []);
 
@@ -205,44 +205,74 @@ export default function DiagnosticandoVidaLanding() {
     <>
       <AnimatePresence mode="wait">
         {isLoading && (
-          <motion.div
-            key="preloader"
-            initial={{ opacity: 1 }}
-            exit={{ opacity: 0, transition: { duration: 1.5, ease: "easeInOut" } }}
-            style={{
-              position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
-              backgroundColor: '#0b3663', zIndex: 9999,
-              display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column'
-            }}
-          >
-            {/* Animated Medical Heartbeat (EKG) */}
-            <div style={{ marginBottom: '2rem' }}>
-              <motion.svg width="250" height="100" viewBox="0 0 200 100" fill="none" stroke="#31ccd3" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" style={{ filter: 'drop-shadow(0px 0px 8px rgba(49,204,211,0.8))' }}>
-                <motion.path
-                  d="M 0 50 L 40 50 L 55 20 L 75 90 L 95 10 L 115 70 L 130 50 L 200 50"
-                  initial={{ pathLength: 0, opacity: 0 }}
-                  animate={{ pathLength: 1, opacity: 1 }}
-                  transition={{ duration: 1.5, ease: "easeInOut", repeat: Infinity, repeatType: "loop" }}
-                />
-              </motion.svg>
-            </div>
+  <motion.div
+    key="preloader"
+    initial={{ opacity: 1 }}
+    exit={{ opacity: 0, transition: { duration: 1.2, ease: "easeInOut" } }}
+    style={{
+      position: 'fixed', top: 0, left: 0, width: '100vw', height: '100vh',
+      backgroundColor: '#0b3663', zIndex: 9999,
+      display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
+      overflow: 'hidden'
+    }}
+  >
+    {/* Imágenes de anatomía con fade */}
+    {['/anat1.jpg', '/anat2.jpg', '/anat3.jpg'].map((src, i) => (
+      <motion.img
+        key={src}
+        src={src}
+        alt=""
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 0.18, 0.18, 0] }}
+        transition={{ duration: 2, delay: i * 0.6, ease: "easeInOut" }}
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          filter: 'saturate(0.4) brightness(0.5) hue-rotate(180deg)',
+        }}
+      />
+    ))}
 
-            <motion.div
-              initial={{ scale: 0.8, opacity: 0, y: 20 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.5 }}
-              style={{ display: 'flex', alignItems: 'center', gap: '1rem', color: '#ffffff', fontSize: '3rem', fontWeight: '800', zIndex: 1, textShadow: '0 10px 30px rgba(0,0,0,0.5)' }}
-            >
-              <ActivityIcon /> Diagnosticando Vida
-            </motion.div>
-            <motion.div
-              initial={{ width: 0 }}
-              animate={{ width: 300 }}
-              transition={{ duration: 3.5, ease: "easeInOut" }}
-              style={{ height: '4px', backgroundColor: '#31ccd3', marginTop: '2rem', borderRadius: '5px', zIndex: 1, boxShadow: '0 0 15px rgba(49, 204, 211, 0.8)' }}
-            />
-          </motion.div>
-        )}
+    {/* Overlay oscuro encima de las imágenes */}
+    <div style={{
+      position: 'absolute', inset: 0,
+      background: 'rgba(11, 54, 99, 0.75)',
+      zIndex: 1
+    }} />
+
+    {/* Logo y barra — encima de todo */}
+    <div style={{ zIndex: 2, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <motion.img
+        src="/logo.png"
+        alt="DX Vida"
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        style={{ width: '100px', height: '100px', objectFit: 'contain', marginBottom: '1rem' }}
+      />
+      <motion.div
+        initial={{ scale: 0.8, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        style={{ color: '#ffffff', fontSize: '2rem', fontWeight: '800' }}
+      >
+        Diagnosticando Vida
+      </motion.div>
+      <motion.div
+        initial={{ width: 0 }}
+        animate={{ width: 280 }}
+        transition={{ duration: 1.6, ease: "easeInOut", delay: 0.3 }}
+        style={{
+          height: '3px', backgroundColor: '#31ccd3',
+          marginTop: '1.5rem', borderRadius: '5px',
+          boxShadow: '0 0 15px rgba(49, 204, 211, 0.8)'
+        }}
+      />
+    </div>
+  </motion.div>
+)}
       </AnimatePresence>
 
     <div className={styles.container}>
