@@ -392,6 +392,61 @@ export default function DiagnosticandoVidaLanding() {
   </div>
 </section>
 
+{/* Barra de accesos rápidos */}
+<div className={styles.quickBar}>
+  <a href="#nosotros" className={styles.quickItem}>
+    <div className={styles.quickIcon}>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1067b4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+        <circle cx="9" cy="7" r="4"></circle>
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+      </svg>
+    </div>
+    <span>Quiénes Somos</span>
+  </a>
+
+  <a href="#casos-reales" className={styles.quickItem}>
+    <div className={styles.quickIcon}>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1067b4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+        <line x1="8" y1="21" x2="16" y2="21"></line>
+        <line x1="12" y1="17" x2="12" y2="21"></line>
+      </svg>
+    </div>
+    <span>Casos Clínicos</span>
+  </a>
+
+  <a href="#reels" className={styles.quickItem}>
+    <div className={styles.quickIcon}>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1067b4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <polygon points="23 7 16 12 23 17 23 7"></polygon>
+        <rect x="1" y="5" width="15" height="14" rx="2"></rect>
+      </svg>
+    </div>
+    <span>Anatomía Real</span>
+  </a>
+
+  <a href="#online" className={styles.quickItem}>
+    <div className={styles.quickIcon}>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1067b4" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+        <circle cx="12" cy="12" r="3"></circle>
+      </svg>
+    </div>
+    <span>Clases Online</span>
+  </a>
+
+  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${styles.quickItem} ${styles.quickItemHighlight}`}>
+    <div className={styles.quickIcon}>
+      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+      </svg>
+    </div>
+    <span>Inscríbete</span>
+  </a>
+</div>
+
       {/* Features Section - Attacking the pain points */}
       <motion.section 
         id="dolor" 

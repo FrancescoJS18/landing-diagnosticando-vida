@@ -799,3 +799,78 @@
   color: #0D3B6E;
   letter-spacing: 0.5px;
 }
+
+/* Barra de accesos rápidos */
+.quickBar {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 10;
+}
+
+.quickItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 1.5rem 2rem;
+  text-decoration: none;
+  color: #0D3B6E;
+  font-weight: 600;
+  font-size: 0.9rem;
+  flex: 1;
+  border-right: 1px solid #e8eef5;
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+}
+
+.quickItem:last-child {
+  border-right: none;
+}
+
+.quickItem:hover {
+  background: #f0f6ff;
+}
+
+.quickIcon {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #e8f0fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.quickItem:hover .quickIcon {
+  background: #d0e4ff;
+}
+
+.quickItemHighlight {
+  background: #1067b4;
+  color: #ffffff;
+}
+
+.quickItemHighlight:hover {
+  background: #0d55a0;
+}
+
+.quickItemHighlight .quickIcon {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 768px) {
+  .quickBar {
+    flex-wrap: wrap;
+  }
+  .quickItem {
+    flex: 1 1 33%;
+    padding: 1.2rem 0.5rem;
+    font-size: 0.8rem;
+  }
+}
