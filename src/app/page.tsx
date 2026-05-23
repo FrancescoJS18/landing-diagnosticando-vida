@@ -481,8 +481,8 @@ export default function DiagnosticandoVidaLanding() {
     <Image
       src="/doctor.png"
       alt="Dr. Daniel Tafur"
-      width={280}
-      height={420}
+      width={340}
+      height={520}
     />
 
     {/* Info */}
