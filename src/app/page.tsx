@@ -465,30 +465,51 @@ export default function DiagnosticandoVidaLanding() {
     </div>
 
     {/* LADO DERECHO - Doctor */}
-    <div className={styles.testimoniosRight}>
-      <div className={styles.doctorCard}>
-        <Image
-  src="/doctor.png"
-  alt="Dr. Daniel Tafur"
-  width={300}
-  height={380}
-  style={{ objectFit: 'contain', width: '100%', height: '380px' }}
-/>
-        <div className={styles.doctorInfo}>
-          <h3>Dr. Daniel Tafur</h3>
-          <p>Médico Cirujano</p>
-          <ul className={styles.doctorPuntos}>
-            <li>✦ Más de 8 años formando médicos de acción clínica</li>
-            <li>✦ Especialista en diagnóstico por imágenes</li>
-            <li>✦ Metodología basada en casos reales de guardia</li>
-            <li>✦ +500 alumnos formados en Perú y Latinoamérica</li>
-          </ul>
-          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.doctorBtn}>
-            Hablar con el Dr. Tafur →
-          </a>
-        </div>
-      </div>
+<div className={styles.testimoniosRight}>
+  <div className={styles.doctorCard}>
+
+    {/* Logo arriba derecha */}
+    <Image
+      src="/logo.png"
+      alt="DX Vida"
+      width={60}
+      height={60}
+      className={styles.doctorLogo}
+    />
+
+    {/* Foto doctor al costado */}
+    <Image
+      src="/doctor.png"
+      alt="Dr. Daniel Tafur"
+      width={280}
+      height={420}
+    />
+
+    {/* Info */}
+    <div className={styles.doctorInfo}>
+      <span className={styles.doctorBadge}>Médico Cirujano</span>
+
+      <h3>
+        Deja de dudar.<br />
+        Aprende a <span>diagnosticar</span> con certeza.
+      </h3>
+
+      <p>El Dr. Daniel Tafur te enseña lo que la facultad nunca te mostró — con casos reales, no con libros.</p>
+
+      <ul className={styles.doctorPuntos}>
+        <li>+8 años formando médicos de acción clínica</li>
+        <li>Especialista en diagnóstico por imágenes</li>
+        <li>Metodología basada en guardias reales</li>
+        <li>+500 alumnos en Perú y Latinoamérica</li>
+      </ul>
+
+      <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.doctorBtn}>
+        🩺 Quiero aprender con el Dr. Tafur →
+      </a>
     </div>
+
+  </div>
+</div>
 
   </div>
 </section>
