@@ -468,44 +468,49 @@ export default function DiagnosticandoVidaLanding() {
 <div className={styles.testimoniosRight}>
   <div className={styles.doctorCard}>
 
-    {/* Logo arriba derecha */}
-    <Image
-      src="/logo.png"
-      alt="DX Vida"
-      width={60}
-      height={60}
-      className={styles.doctorLogo}
-    />
+    <div className={styles.doctorLeft}>
+      <div className={styles.doctorInfo}>
+        <span className={styles.doctorBadge}>Médico Cirujano</span>
 
-    {/* Foto doctor al costado */}
-    <Image
-      src="/doctor.png"
-      alt="Dr. Daniel Tafur"
-      width={340}
-      height={520}
-    />
+        <h3>
+          Deja de dudar.<br />
+          Aprende a <span>diagnosticar</span> con certeza.
+        </h3>
 
-    {/* Info */}
-    <div className={styles.doctorInfo}>
-      <span className={styles.doctorBadge}>Médico Cirujano</span>
+        <p>El Dr. Daniel Tafur te enseña lo que la facultad nunca te mostró — con casos reales, no con libros.</p>
 
-      <h3>
-        Deja de dudar.<br />
-        Aprende a <span>diagnosticar</span> con certeza.
-      </h3>
-
-      <p>El Dr. Daniel Tafur te enseña lo que la facultad nunca te mostró — con casos reales, no con libros.</p>
-
-      <ul className={styles.doctorPuntos}>
-        <li>+8 años formando médicos de acción clínica</li>
-        <li>Especialista en diagnóstico por imágenes</li>
-        <li>Metodología basada en guardias reales</li>
-        <li>+500 alumnos en Perú y Latinoamérica</li>
-      </ul>
+        <ul className={styles.doctorPuntos}>
+          <li>+8 años formando médicos de acción clínica</li>
+          <li>Especialista en diagnóstico por imágenes</li>
+          <li>Metodología basada en guardias reales</li>
+          <li>+500 alumnos en Perú y Latinoamérica</li>
+        </ul>
+      </div>
 
       <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.doctorBtn}>
         🩺 Quiero aprender con el Dr. Tafur →
       </a>
+    </div>
+
+    <div className={styles.doctorRight}>
+      <Image
+        src="/logo.png"
+        alt="DX Vida"
+        width={70}
+        height={70}
+        className={styles.doctorLogo}
+      />
+
+      <div className={styles.doctorImageWrap}>
+        <Image
+          src="/doctor.png"
+          alt="Dr. Daniel Tafur"
+          width={620}
+          height={880}
+          className={styles.doctorImage}
+          style={{ objectFit: 'contain' }}
+        />
+      </div>
     </div>
 
   </div>
