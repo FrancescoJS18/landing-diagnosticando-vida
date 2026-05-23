@@ -468,12 +468,12 @@ export default function DiagnosticandoVidaLanding() {
     <div className={styles.testimoniosRight}>
       <div className={styles.doctorCard}>
         <Image
-          src="/doctor.jpg"
-          alt="Dr. Daniel Tafur"
-          width={320}
-          height={420}
-          style={{ objectFit: 'cover', width: '100%', height: '420px', borderRadius: '16px 16px 0 0' }}
-        />
+  src="/doctor.png"
+  alt="Dr. Daniel Tafur"
+  width={300}
+  height={380}
+  style={{ objectFit: 'contain', width: '100%', height: '380px' }}
+/>
         <div className={styles.doctorInfo}>
           <h3>Dr. Daniel Tafur</h3>
           <p>Médico Cirujano</p>
