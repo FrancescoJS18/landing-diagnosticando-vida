@@ -1033,7 +1033,7 @@
   position: relative;
   overflow: hidden;
   padding: 2rem;
-  min-height: 620px;
+  min-height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1043,8 +1043,8 @@
   position: absolute;
   bottom: 0;
   right: -20px;
-  width: 75%;
-  height: 90%;
+  width: 80%;
+  height: 85%;
   object-fit: contain;
   object-position: bottom;
   z-index: 1;
@@ -1065,8 +1065,8 @@
   top: 1.2rem;
   right: 1.2rem;
   z-index: 3;
-  width: 45px !important;
-  height: 45px !important;
+  width: 70px !important;
+  height: 70px !important;
   object-fit: contain;
 }
 
