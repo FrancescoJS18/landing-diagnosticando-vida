@@ -1042,9 +1042,9 @@
 .doctorCard img:not(.doctorLogo) {
   position: absolute;
   bottom: 0;
-  right: -10px;
-  width: 88%;
-  height: 92%;
+  right: -5px;
+  width: 95%;
+  height: 98%;
   object-fit: contain;
   object-position: bottom;
   z-index: 1;
@@ -1065,8 +1065,8 @@
   top: 1.5rem;
   right: 1.5rem;
   z-index: 3;
-  width: 90px !important;
-  height: 90px !important;
+  width: 110px !important;
+  height: 110px !important;
   object-fit: contain;
 }
 
