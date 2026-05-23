@@ -143,6 +143,7 @@ export default function DiagnosticandoVidaLanding() {
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
+  const [activeTestimonio, setActiveTestimonio] = useState<{nombre: string, especialidad: string, video: string} | null>(null);
 
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!carouselRef.current) return;
@@ -419,54 +420,78 @@ export default function DiagnosticandoVidaLanding() {
 
 {/* Testimonios */}
 <section className={styles.testimonios} id="testimonios">
-  <h2 className={styles.sectionTitle}>Lo que dicen nuestros <span>alumnos</span></h2>
-  <p className={styles.sectionSubtitle}>Estudiantes reales, resultados reales.</p>
+  <div className={styles.testimoniosSplit}>
 
-  <div className={styles.testimonioGrid}>
-    {[
-      { nombre: 'Hebert', especialidad: 'Estudiante de Medicina', video: '/testi1.mp4' },
-      { nombre: 'Flor', especialidad: 'Estudiante de Medicina', video: '/testi2.mp4' },
-    ].map((t, i) => (
-      <div key={i} className={styles.testimonioCard}>
-        <div className={styles.testimonioFoto}>
-          <Image src="/logo.png" alt={t.nombre} width={80} height={80} style={{ objectFit: 'contain', borderRadius: '50%' }} />
-        </div>
-        <div className={styles.testimonioInfo}>
-          <h3>{t.nombre}</h3>
-          <p>{t.especialidad}</p>
-        </div>
-        <button
-          className={styles.testimonioBtn}
-          onClick={() => {
-            const modal = document.getElementById(`modal-${i}`);
-            if (modal) modal.style.display = 'flex';
-          }}
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
-          Ver testimonio
-        </button>
+    {/* LADO IZQUIERDO - Tarjetas + Video */}
+    <div className={styles.testimoniosLeft}>
+      <h2 className={styles.testimoniosTitulo}>Lo que dicen nuestros <span>alumnos</span></h2>
+      <p className={styles.testimoniosSubtitulo}>Estudiantes reales, resultados reales.</p>
 
-        {/* Modal video */}
-        <div id={`modal-${i}`} className={styles.modalOverlay} onClick={(e) => {
-          if ((e.target as HTMLElement).id === `modal-${i}`) {
-            (e.target as HTMLElement).style.display = 'none';
-          }
-        }}>
-          <div className={styles.modalContent}>
-            <button className={styles.modalClose} onClick={() => {
-              const modal = document.getElementById(`modal-${i}`);
-              if (modal) modal.style.display = 'none';
-            }}>✕</button>
-            <video controls autoPlay style={{ width: '100%', borderRadius: '12px' }}>
-              <source src={t.video} type="video/mp4" />
-            </video>
-          </div>
+      {/* Tarjetas */}
+      {!activeTestimonio ? (
+        <div className={styles.testimonioGrid}>
+          {[
+            { nombre: 'Hebert', especialidad: 'Estudiante de Medicina', video: '/testi1.mp4' },
+            { nombre: 'Flor', especialidad: 'Estudiante de Medicina', video: '/testi2.mp4' },
+          ].map((t, i) => (
+            <div key={i} className={styles.testimonioCard}>
+              <div className={styles.testimonioFoto}>
+                <Image src="/logo.png" alt={t.nombre} width={80} height={80} style={{ objectFit: 'contain', borderRadius: '50%' }} />
+              </div>
+              <div className={styles.testimonioInfo}>
+                <h3>{t.nombre}</h3>
+                <p>{t.especialidad}</p>
+              </div>
+              <button
+                className={styles.testimonioBtn}
+                onClick={() => setActiveTestimonio(t)}
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                Ver testimonio
+              </button>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className={styles.testimonioVideoWrap}>
+          <video controls autoPlay className={styles.testimonioVideo}>
+            <source src={activeTestimonio.video} type="video/mp4" />
+          </video>
+          <button className={styles.testimonioVolver} onClick={() => setActiveTestimonio(null)}>
+            ← Ver otros testimonios
+          </button>
+        </div>
+      )}
+    </div>
+
+    {/* LADO DERECHO - Doctor */}
+    <div className={styles.testimoniosRight}>
+      <div className={styles.doctorCard}>
+        <Image
+          src="/doctor.jpg"
+          alt="Dr. Daniel Tafur"
+          width={320}
+          height={420}
+          style={{ objectFit: 'cover', width: '100%', height: '420px', borderRadius: '16px 16px 0 0' }}
+        />
+        <div className={styles.doctorInfo}>
+          <h3>Dr. Daniel Tafur</h3>
+          <p>Médico Cirujano</p>
+          <ul className={styles.doctorPuntos}>
+            <li>✦ Más de 8 años formando médicos de acción clínica</li>
+            <li>✦ Especialista en diagnóstico por imágenes</li>
+            <li>✦ Metodología basada en casos reales de guardia</li>
+            <li>✦ +500 alumnos formados en Perú y Latinoamérica</li>
+          </ul>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.doctorBtn}>
+            Hablar con el Dr. Tafur →
+          </a>
         </div>
       </div>
-    ))}
+    </div>
+
   </div>
 </section>
-
       {/* Features Section - Attacking the pain points */}
       <motion.section 
         id="dolor" 
