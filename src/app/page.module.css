@@ -1051,11 +1051,8 @@
 }
 
 .doctorRight {
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  height: 100%;
   position: relative;
+  min-height: 580px;
 }
 
 .doctorImageWrap {
@@ -1068,11 +1065,14 @@
 
 .doctorImage {
   width: 100% !important;
-  height: auto !important;
-  max-height: 560px;
-  object-fit: contain;
-  object-position: bottom;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: top center !important;
   filter: drop-shadow(0px 15px 35px rgba(0,0,0,0.35));
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  bottom: 0 !important;
 }
 
 .doctorLogo {
