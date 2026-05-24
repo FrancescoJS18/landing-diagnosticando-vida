@@ -1359,3 +1359,150 @@
     padding: 2rem;
   }
 }
+
+/* ================================
+   RESPONSIVE MÓVIL COMPLETO
+   ================================ */
+
+@media (max-width: 768px) {
+
+  /* Navbar */
+  .navbar {
+    padding: 0.8rem 4%;
+  }
+  .navLinks {
+    display: none;
+  }
+  .logoText {
+    font-size: 0.95rem;
+  }
+
+  /* Hero */
+  .heroContent {
+    left: 4%;
+    bottom: 2rem;
+    width: 92%;
+  }
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+  .heroSubtitle {
+    font-size: 0.95rem;
+  }
+  .heroButtons {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+  .heroControls {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  /* Quick Bar */
+  .quickBar {
+    flex-wrap: wrap;
+  }
+  .quickItem {
+    flex: 1 1 33%;
+    padding: 1rem 0.3rem;
+    font-size: 0.72rem;
+  }
+  .quickIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Testimonios split */
+  .testimoniosSplit {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .testimoniosLeft, .testimoniosRight {
+    width: 100%;
+  }
+  .testimonioGrid {
+    flex-direction: column;
+  }
+  .testimonioCard {
+    width: 100%;
+  }
+  .doctorCard {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 1.5rem;
+  }
+  .doctorRight {
+    min-height: 300px;
+  }
+  .doctorImage {
+    max-height: 300px;
+    position: relative !important;
+    width: 100% !important;
+  }
+  .doctorInfo {
+    max-width: 100%;
+  }
+  .doctorInfo h3 {
+    font-size: 1.3rem;
+  }
+
+  /* Features banner */
+  .featuresBannerInner {
+    grid-template-columns: 1fr;
+  }
+  .featuresBannerLeft {
+    padding: 2rem 1.5rem;
+  }
+  .featuresBannerTitle {
+    font-size: 1.4rem;
+  }
+  .featuresBannerRight {
+    min-height: 220px;
+  }
+
+  /* Casos reales / reels */
+  .casosSection {
+    padding: 3rem 4%;
+  }
+  .reelsCarousel {
+    gap: 0.8rem;
+  }
+  .reelCard {
+    min-width: 240px;
+    height: 380px;
+  }
+
+  /* Online section */
+  .onlineSection {
+    padding: 3rem 4%;
+  }
+  .onlineGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Quiénes somos */
+  .aboutSection {
+    padding: 3rem 4%;
+    flex-direction: column;
+  }
+  .aboutImages {
+    flex-direction: column;
+  }
+
+  /* Sección titulo general */
+  .sectionTitle {
+    font-size: 1.6rem;
+  }
+  .sectionSubtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Footer */
+  .footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+    padding: 2rem 4%;
+  }
+}
