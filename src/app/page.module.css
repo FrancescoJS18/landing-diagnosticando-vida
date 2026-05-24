@@ -1174,3 +1174,67 @@
     flex-direction: column;
   }
 }
+
+/* Features Carrusel */
+.featuresCarousel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.featuresTrack {
+  width: 100%;
+  max-width: 500px;
+  min-height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featureCardActive {
+  width: 100%;
+  text-align: center;
+  padding: 3rem 2rem;
+}
+
+.featureArrow {
+  background: rgba(255,255,255,0.1);
+  border: 2px solid rgba(255,255,255,0.2);
+  color: #ffffff;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.featureArrow:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.featureDots {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.featureDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.3);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.featureDotActive {
+  background: #31ccd3;
+}

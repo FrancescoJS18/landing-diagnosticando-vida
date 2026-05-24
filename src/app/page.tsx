@@ -144,7 +144,8 @@ export default function DiagnosticandoVidaLanding() {
   const [scrollLeft, setScrollLeft] = useState(0);
   const [activeTab, setActiveTab] = useState(0);
   const [activeTestimonio, setActiveTestimonio] = useState<{nombre: string, especialidad: string, video: string} | null>(null);
-
+  const [featureTab, setFeatureTab] = useState(0);
+  
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!carouselRef.current) return;
     setIsDragging(true);
@@ -516,48 +517,66 @@ export default function DiagnosticandoVidaLanding() {
 
   </div>
 </section>
-      {/* Features Section - Attacking the pain points */}
-      <motion.section 
-        id="dolor" 
-        className={styles.features}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={staggerContainer}
-      >
-        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>La Anatomía Real No se Aprende en <span>Libros</span></motion.h2>
-        <div className={styles.featuresGrid}>
-          <motion.div variants={fadeInUp} className={styles.featureCard}>
-            <div className={styles.featureIcon}>
-              <AlertCircleIcon />
-            </div>
-            <h3 className={styles.featureTitle}>Radiografías e Imágenes Reales</h3>
-            <p className={styles.featureText}>
-                Nada de dibujos perfectos. Te enfrentarás a tomografías, ecografías y radiografías de pacientes reales donde cada detalle cuenta.
-            </p>
-          </motion.div>
+      {/* Features Section */}
+<section id="dolor" className={styles.features}>
+  <h2 className={styles.sectionTitle}>La Anatomía Real No se Aprende en <span>Libros</span></h2>
 
-          <motion.div variants={fadeInUp} className={styles.featureCard}>
-            <div className={styles.featureIcon}>
-              <UsersIcon />
-            </div>
-            <h3 className={styles.featureTitle}>Diagnóstico Bajo Presión</h3>
-            <p className={styles.featureText}>
-                Nuestros especialistas te entrenan como en una guardia real. Tomarás decisiones diagnósticas rápidas y precisas bajo estrés.
-            </p>
-          </motion.div>
+  <div className={styles.featuresCarousel}>
+    <button
+      className={styles.featureArrow}
+      onClick={() => setFeatureTab((prev) => (prev - 1 + 3) % 3)}
+    >
+      <ChevronLeftIcon />
+    </button>
 
-          <motion.div variants={fadeInUp} className={styles.featureCard}>
-            <div className={styles.featureIcon}>
-              <EyeIcon />
-            </div>
-            <h3 className={styles.featureTitle}>Ojo Clínico Especializado</h3>
-            <p className={styles.featureText}>
-                Calibra tu vista para detectar anomalías milimétricas en imágenes médicas. El mismo ojo que usan los radiólogos expertos.
-            </p>
-          </motion.div>
-        </div>
-      </motion.section>
+    <div className={styles.featuresTrack}>
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={featureTab}
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: -40 }}
+          transition={{ duration: 0.35 }}
+          className={`${styles.featureCard} ${styles.featureCardActive}`}
+        >
+          <div className={styles.featureIcon}>
+            {featureTab === 0 && <AlertCircleIcon />}
+            {featureTab === 1 && <UsersIcon />}
+            {featureTab === 2 && <EyeIcon />}
+          </div>
+          <h3 className={styles.featureTitle}>
+            {featureTab === 0 && 'Radiografías e Imágenes Reales'}
+            {featureTab === 1 && 'Diagnóstico Bajo Presión'}
+            {featureTab === 2 && 'Ojo Clínico Especializado'}
+          </h3>
+          <p className={styles.featureText}>
+            {featureTab === 0 && 'Nada de dibujos perfectos. Te enfrentarás a tomografías, ecografías y radiografías de pacientes reales donde cada detalle cuenta.'}
+            {featureTab === 1 && 'Nuestros especialistas te entrenan como en una guardia real. Tomarás decisiones diagnósticas rápidas y precisas bajo estrés.'}
+            {featureTab === 2 && 'Calibra tu vista para detectar anomalías milimétricas en imágenes médicas. El mismo ojo que usan los radiólogos expertos.'}
+          </p>
+        </motion.div>
+      </AnimatePresence>
+    </div>
+
+    <button
+      className={styles.featureArrow}
+      onClick={() => setFeatureTab((prev) => (prev + 1) % 3)}
+    >
+      <ChevronRightLargeIcon />
+    </button>
+  </div>
+
+  {/* Dots */}
+  <div className={styles.featureDots}>
+    {[0, 1, 2].map((i) => (
+      <button
+        key={i}
+        className={`${styles.featureDot} ${featureTab === i ? styles.featureDotActive : ''}`}
+        onClick={() => setFeatureTab(i)}
+      />
+    ))}
+  </div>
+</section>
 
       {/* Casos Reales Section (Slider) */}
       <motion.section 
