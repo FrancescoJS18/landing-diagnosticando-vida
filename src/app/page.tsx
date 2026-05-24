@@ -554,14 +554,14 @@ export default function DiagnosticandoVidaLanding() {
         <div className={styles.featuresBannerLeft}>
           <div className={styles.featuresBannerLine} />
           <h2 className={styles.featuresBannerTitle}>
-            {featureTab === 0 && 'Radiografías e Imágenes Reales'}
-            {featureTab === 1 && 'Diagnóstico Bajo Presión'}
-            {featureTab === 2 && 'Ojo Clínico Especializado'}
+            {featureTab === 0 && "Imágenes que la Facultad No Te Mostró"}
+            {featureTab === 1 && 'Decide en Segundos. Vidas en Juego.'}
+            {featureTab === 2 && 'Ve Lo que Otros Médicos No Ven'}
           </h2>
           <p className={styles.featuresBannerText}>
-            {featureTab === 0 && 'Nada de dibujos perfectos. Te enfrentarás a tomografías, ecografías y radiografías de pacientes reales donde cada detalle cuenta.'}
-            {featureTab === 1 && 'Nuestros especialistas te entrenan como en una guardia real. Tomarás decisiones diagnósticas rápidas y precisas bajo estrés.'}
-            {featureTab === 2 && 'Calibra tu vista para detectar anomalías milimétricas en imágenes médicas. El mismo ojo que usan los radiólogos expertos.'}
+            {featureTab === 0 && 'Tomografías, ecografías y radiografías de urgencias reales. Cada error que evites aquí es una vida que salvas en guardia.'}
+            {featureTab === 1 && 'En urgencias no hay tiempo para dudar. Te entrenamos bajo presión real para que tu criterio clínico sea instintivo y certero.'}
+            {featureTab === 2 && 'El ojo clínico no se nace — se entrena. Detecta anomalías milimétricas que la mayoría de médicos junior pasa por alto.'}
           </p>
           <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.featuresBannerBtn}>
             Quiero entrenarme →
