@@ -1238,3 +1238,112 @@
 .featureDotActive {
   background: #31ccd3;
 }
+
+/* Features Banner estilo UCV */
+.features {
+  padding: 0;
+  background: transparent;
+}
+
+.featuresBanner {
+  position: relative;
+  width: 100%;
+  cursor: grab;
+  user-select: none;
+}
+
+.featuresBannerInner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 280px;
+}
+
+.featuresBannerLeft {
+  background: #0D3B6E;
+  padding: 3rem 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+.featuresBannerLine {
+  width: 4px;
+  height: 40px;
+  background: #31ccd3;
+  border-radius: 4px;
+}
+
+.featuresBannerTitle {
+  color: #ffffff;
+  font-size: 1.6rem;
+  font-weight: 800;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.featuresBannerText {
+  color: rgba(255,255,255,0.8);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 420px;
+}
+
+.featuresBannerBtn {
+  display: inline-block;
+  background: #31ccd3;
+  color: #0D3B6E;
+  padding: 0.7rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 800;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.2s;
+}
+
+.featuresBannerBtn:hover {
+  background: #ffffff;
+}
+
+.featuresBannerRight {
+  position: relative;
+  min-height: 280px;
+  overflow: hidden;
+}
+
+.featureDots {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.featureDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.4);
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.featureDotActive {
+  background: #31ccd3;
+}
+
+@media (max-width: 768px) {
+  .featuresBannerInner {
+    grid-template-columns: 1fr;
+  }
+  .featuresBannerRight {
+    min-height: 200px;
+  }
+  .featuresBannerLeft {
+    padding: 2rem;
+  }
+}

@@ -145,7 +145,7 @@ export default function DiagnosticandoVidaLanding() {
   const [activeTab, setActiveTab] = useState(0);
   const [activeTestimonio, setActiveTestimonio] = useState<{nombre: string, especialidad: string, video: string} | null>(null);
   const [featureTab, setFeatureTab] = useState(0);
-  
+
   const handleMouseDown = (e: React.MouseEvent) => {
     if (!carouselRef.current) return;
     setIsDragging(true);
@@ -517,64 +517,79 @@ export default function DiagnosticandoVidaLanding() {
 
   </div>
 </section>
+
       {/* Features Section */}
 <section id="dolor" className={styles.features}>
-  <h2 className={styles.sectionTitle}>La Anatomía Real No se Aprende en <span>Libros</span></h2>
-
-  <div className={styles.featuresCarousel}>
-    <button
-      className={styles.featureArrow}
-      onClick={() => setFeatureTab((prev) => (prev - 1 + 3) % 3)}
-    >
-      <ChevronLeftIcon />
-    </button>
-
-    <div className={styles.featuresTrack}>
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={featureTab}
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -40 }}
-          transition={{ duration: 0.35 }}
-          className={`${styles.featureCard} ${styles.featureCardActive}`}
-        >
-          <div className={styles.featureIcon}>
-            {featureTab === 0 && <AlertCircleIcon />}
-            {featureTab === 1 && <UsersIcon />}
-            {featureTab === 2 && <EyeIcon />}
-          </div>
-          <h3 className={styles.featureTitle}>
+  <div
+    className={styles.featuresBanner}
+    onMouseDown={(e) => {
+      const el = e.currentTarget;
+      const startX = e.pageX;
+      const onMove = (ev: MouseEvent) => {
+        if (ev.pageX - startX > 50) { setFeatureTab((p) => (p - 1 + 3) % 3); el.removeEventListener('mousemove', onMove); }
+        if (startX - ev.pageX > 50) { setFeatureTab((p) => (p + 1) % 3); el.removeEventListener('mousemove', onMove); }
+      };
+      el.addEventListener('mousemove', onMove);
+      el.addEventListener('mouseup', () => el.removeEventListener('mousemove', onMove), { once: true });
+    }}
+    onTouchStart={(e) => {
+      const startX = e.touches[0].pageX;
+      const onEnd = (ev: TouchEvent) => {
+        if (ev.changedTouches[0].pageX - startX > 50) setFeatureTab((p) => (p - 1 + 3) % 3);
+        if (startX - ev.changedTouches[0].pageX > 50) setFeatureTab((p) => (p + 1) % 3);
+      };
+      e.currentTarget.addEventListener('touchend', onEnd, { once: true });
+    }}
+  >
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={featureTab}
+        className={styles.featuresBannerInner}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.4 }}
+      >
+        {/* Izquierda */}
+        <div className={styles.featuresBannerLeft}>
+          <div className={styles.featuresBannerLine} />
+          <h2 className={styles.featuresBannerTitle}>
             {featureTab === 0 && 'Radiografías e Imágenes Reales'}
             {featureTab === 1 && 'Diagnóstico Bajo Presión'}
             {featureTab === 2 && 'Ojo Clínico Especializado'}
-          </h3>
-          <p className={styles.featureText}>
+          </h2>
+          <p className={styles.featuresBannerText}>
             {featureTab === 0 && 'Nada de dibujos perfectos. Te enfrentarás a tomografías, ecografías y radiografías de pacientes reales donde cada detalle cuenta.'}
             {featureTab === 1 && 'Nuestros especialistas te entrenan como en una guardia real. Tomarás decisiones diagnósticas rápidas y precisas bajo estrés.'}
             {featureTab === 2 && 'Calibra tu vista para detectar anomalías milimétricas en imágenes médicas. El mismo ojo que usan los radiólogos expertos.'}
           </p>
-        </motion.div>
-      </AnimatePresence>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.featuresBannerBtn}>
+            Quiero entrenarme →
+          </a>
+        </div>
+
+        {/* Derecha */}
+        <div className={styles.featuresBannerRight}>
+          <Image
+            src={featureTab === 0 ? '/anat1.jpeg' : featureTab === 1 ? '/anat2.jpeg' : '/anat3.jpeg'}
+            alt="Anatomía"
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+
+    {/* Dots */}
+    <div className={styles.featureDots}>
+      {[0, 1, 2].map((i) => (
+        <button
+          key={i}
+          className={`${styles.featureDot} ${featureTab === i ? styles.featureDotActive : ''}`}
+          onClick={() => setFeatureTab(i)}
+        />
+      ))}
     </div>
-
-    <button
-      className={styles.featureArrow}
-      onClick={() => setFeatureTab((prev) => (prev + 1) % 3)}
-    >
-      <ChevronRightLargeIcon />
-    </button>
-  </div>
-
-  {/* Dots */}
-  <div className={styles.featureDots}>
-    {[0, 1, 2].map((i) => (
-      <button
-        key={i}
-        className={`${styles.featureDot} ${featureTab === i ? styles.featureDotActive : ''}`}
-        onClick={() => setFeatureTab(i)}
-      />
-    ))}
   </div>
 </section>
 
