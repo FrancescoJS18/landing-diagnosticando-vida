@@ -298,7 +298,7 @@ export default function DiagnosticandoVidaLanding() {
   <div className={styles.navLinks}>
     <a href="#inicio" className={styles.navLink}>Inicio</a>
     <a href="#dolor" className={styles.navLink}>¿Inseguro? <span className={styles.navArrow}>▾</span></a>
-    <a href="#casos-reales" className={styles.navLink}>Casos Reales <span className={styles.navArrow}>▾</span></a>
+    <a href="#testimonios" className={styles.navLink}>Casos Reales <span className={styles.navArrow}>▾</span></a>
     <a href="#nosotros" className={styles.navLink}>Quiénes Somos</a>
   </div>
   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={`${styles.primaryBtn} ${styles.navBtn}`} style={{ padding: '0.6rem 1.2rem', fontSize: '0.95rem' }}>
@@ -400,7 +400,7 @@ export default function DiagnosticandoVidaLanding() {
 <div className={styles.quickBar}>
   {[
     { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>, label: 'Quiénes Somos', href: '#nosotros' },
-    { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>, label: 'Casos Clínicos', href: '#casos-reales' },
+    { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>, label: 'Testimonios', href: '#testimonios' },
     { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2"></rect></svg>, label: 'Anatomía Real', href: '#reels' },
     { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>, label: 'Clases Online', href: '#online' },
     { icon: <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>, label: 'Inscríbete', href: whatsappUrl },
@@ -421,6 +421,7 @@ export default function DiagnosticandoVidaLanding() {
 
 {/* Testimonios */}
 <section className={styles.testimonios} id="testimonios">
+  <div id="casos-reales" style={{ position: 'absolute', marginTop: '-80px' }} />
   <div className={styles.testimoniosSplit}>
 
     {/* LADO IZQUIERDO - Tarjetas + Video */}
@@ -592,61 +593,6 @@ export default function DiagnosticandoVidaLanding() {
     </div>
   </div>
 </section>
-
-      {/* Casos Reales Section (Slider) */}
-      <motion.section 
-        id="casos-reales" 
-        className={styles.casosRealesSection}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={staggerContainer}
-      >
-        <motion.h2 variants={fadeInUp} className={styles.sectionTitle}>Nuestros Alumnos en <span>Acción</span></motion.h2>
-        <motion.p variants={fadeInUp} className={styles.gallerySubtitle}>Mira cómo nuestros estudiantes aplican el método en guardias reales.</motion.p>
-        
-        <div style={{ position: 'relative', maxWidth: '900px', margin: '3rem auto 0', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem' }}>
-          
-          <button onClick={prevCaso} className={styles.sliderBtn} aria-label="Anterior alumno">
-            <ChevronLeftIcon />
-          </button>
-
-          <div style={{ overflow: 'hidden', width: '100%', borderRadius: '20px', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', position: 'relative' }}>
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentCaso}
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                transition={{ duration: 0.4 }}
-                style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#0d2238' }}
-              >
-                {casosData[currentCaso].isVideo ? (
-                  <div style={{ width: '100%', height: '350px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: '#000', color: '#fff' }}>
-                    <PlayIcon />
-                  </div>
-                ) : (
-                  <Image 
-                    src={casosData[currentCaso].image || ""} 
-                    alt={casosData[currentCaso].title} 
-                    width={800} 
-                    height={400} 
-                    style={{ width: '100%', height: '350px', objectFit: 'cover', filter: casosData[currentCaso].filter }} 
-                  />
-                )}
-                <div style={{ padding: '2.5rem' }}>
-                  <h3 style={{ fontSize: '1.8rem', marginBottom: '1rem', color: '#fff' }}>{casosData[currentCaso].title}</h3>
-                  <p style={{ color: '#a0b1c5', fontSize: '1.2rem', lineHeight: '1.6' }}>{casosData[currentCaso].text}</p>
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          <button onClick={nextCaso} className={styles.sliderBtn} aria-label="Siguiente alumno">
-            <ChevronRightLargeIcon />
-          </button>
-        </div>
-      </motion.section>
 
       {/* Quiénes Somos Section */}
       <motion.section 
