@@ -595,35 +595,64 @@ export default function DiagnosticandoVidaLanding() {
 </section>
 
       {/* Quiénes Somos Section */}
-      <motion.section 
-        id="nosotros" 
-        className={styles.aboutSection}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        variants={staggerContainer}
-      >
-        <div className={styles.aboutGrid}>
-          <motion.div variants={fadeInUp} className={styles.aboutContent}>
-            <h2 className={styles.sectionTitle} style={{ textAlign: 'left', marginBottom: '1rem' }}>¿Quiénes Somos en <span>Diagnosticando Vida</span>?</h2>
-            <p className={styles.aboutText}>
-              Somos un equipo de médicos especialistas cansados de ver cómo el sistema educativo tradicional lanza a los estudiantes a las guardias sin la preparación visual necesaria.
-            </p>
-            <p className={styles.aboutText}>
-              Nuestra misión es erradicar el miedo frente al monitor y brindarte las herramientas prácticas que la teoría de la facultad omitió. No formamos teóricos, <strong>formamos médicos de acción clínica inmediata</strong>.
-            </p>
-          </motion.div>
-          <motion.div 
-            className={styles.aboutImages}
-            variants={fadeInUp}
-            whileHover={{ scale: 1.05, rotate: 2 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          >
-            <Image src="/doctor_profile.png" alt="Doctor" width={400} height={400} className={styles.aboutImageMain} />
-            <Image src="/students_training.png" alt="Estudiantes" width={300} height={300} className={styles.aboutImageSecondary} />
-          </motion.div>
+<motion.section
+  id="nosotros"
+  className={styles.aboutSection}
+  initial="hidden"
+  whileInView="visible"
+  viewport={{ once: true, amount: 0.2 }}
+  variants={staggerContainer}
+>
+  <div className={styles.aboutGrid}>
+    <motion.div variants={fadeInUp} className={styles.aboutContent}>
+      <h2 className={styles.sectionTitle} style={{ textAlign: 'left', marginBottom: '1rem' }}>
+        ¿Quiénes Somos en <span>Diagnosticando Vida</span>?
+      </h2>
+      <p className={styles.aboutText}>
+        Soy el <strong>Dr. Daniel Tafur Navarro</strong>, médico cirujano. Durante mi formación, anatomía me parecía fascinante, pero también desafiante — entendí lo amplia que era y que había aspectos que necesitaban consolidarse.
+      </p>
+      <p className={styles.aboutText}>
+        Algunas veces memorizaba… y olvidaba. La clave estuvo en algo simple pero poderoso: <strong>¡la repetición estratégica y el repaso inteligente!</strong>
+      </p>
+      <p className={styles.aboutText}>
+        Este método me permitió no solo dominar anatomía, sino <strong>darle sentido a otras ciencias básicas que dependen completamente de ella.</strong>
+      </p>
+      <p className={styles.aboutText}>
+        Hoy, más de <strong>3,000 estudiantes</strong> han pasado por nuestro programa, con testimonios escritos, hablados y resultados medibles que demuestran que cuando la base es sólida, <strong>el rendimiento cambia por completo</strong>.
+      </p>
+
+      {/* Contador de estudiantes */}
+      <div className={styles.aboutStats}>
+        <div className={styles.aboutStat}>
+          <span className={styles.aboutStatNum}>+3,000</span>
+          <span className={styles.aboutStatLabel}>Estudiantes formados</span>
         </div>
-      </motion.section>
+        <div className={styles.aboutStat}>
+          <span className={styles.aboutStatNum}>+8 años</span>
+          <span className={styles.aboutStatLabel}>De experiencia</span>
+        </div>
+        <div className={styles.aboutStat}>
+          <span className={styles.aboutStatNum}>100%</span>
+          <span className={styles.aboutStatLabel}>Online y en vivo</span>
+        </div>
+      </div>
+    </motion.div>
+
+    {/* Foto doctor + logo */}
+    <motion.div variants={fadeInUp} className={styles.aboutImageWrap}>
+      <div className={styles.aboutLogoTop}>
+        <Image src="/logo.png" alt="DX Vida" width={80} height={80} style={{ objectFit: 'contain' }} />
+      </div>
+      <Image
+        src="/doctor.png"
+        alt="Dr. Daniel Tafur"
+        width={400}
+        height={500}
+        className={styles.aboutDoctorImg}
+      />
+    </motion.div>
+  </div>
+</motion.section>
 
       {/* Carrusel de Reels */}
       <motion.section 
@@ -654,15 +683,15 @@ export default function DiagnosticandoVidaLanding() {
           </div>
           {/* Reel 2 */}
           <div className={styles.reelCard}>
-            <video className={styles.reelVideo} src="/reel2.mp4" poster="/poster-reel2.jpg" controls playsInline />
+            <video className={styles.reelVideo} src="/Reels_2.mp4" poster="/poster-reel2.jpg" controls playsInline />
           </div>
           {/* Reel 3 */}
           <div className={styles.reelCard}>
-            <video className={styles.reelVideo} src="/reel3.mp4" poster="/poster-reel3.jpg" controls playsInline />
+            <video className={styles.reelVideo} src="/Reels_3.mp4" poster="/poster-reel3.jpg" controls playsInline />
           </div>
           {/* Reel 4 */}
           <div className={styles.reelCard}>
-            <video className={styles.reelVideo} src="/reel4.mp4" poster="/poster-reel4.jpg" controls playsInline />
+            <video className={styles.reelVideo} src="/Reels_4.mp4" poster="/poster-reel4.jpg" controls playsInline />
           </div>
         </motion.div>
       </motion.section>
