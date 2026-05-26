@@ -414,71 +414,78 @@ export default function DiagnosticandoVidaLanding() {
           </div>
         </section>
 
-        {/* Features Banner */}
-        <section id="dolor" className={styles.features}>
-          <div
-            className={styles.featuresBanner}
-            onMouseDown={(e) => {
-              const el = e.currentTarget;
-              const startX = e.pageX;
-              const onMove = (ev: MouseEvent) => {
-                if (ev.pageX - startX > 50) { setFeatureTab((p) => (p - 1 + 3) % 3); el.removeEventListener('mousemove', onMove); }
-                if (startX - ev.pageX > 50) { setFeatureTab((p) => (p + 1) % 3); el.removeEventListener('mousemove', onMove); }
-              };
-              el.addEventListener('mousemove', onMove);
-              el.addEventListener('mouseup', () => el.removeEventListener('mousemove', onMove), { once: true });
-            }}
-            onTouchStart={(e) => {
-              const startX = e.touches[0].pageX;
-              const onEnd = (ev: TouchEvent) => {
-                if (ev.changedTouches[0].pageX - startX > 50) setFeatureTab((p) => (p - 1 + 3) % 3);
-                if (startX - ev.changedTouches[0].pageX > 50) setFeatureTab((p) => (p + 1) % 3);
-              };
-              e.currentTarget.addEventListener('touchend', onEnd, { once: true });
-            }}
-          >
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={featureTab}
-                className={styles.featuresBannerInner}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -40 }}
-                transition={{ duration: 0.4 }}
-              >
-                <div className={styles.featuresBannerLeft}>
-                  <div className={styles.featuresBannerLine} />
-                  <h2 className={styles.featuresBannerTitle}>
-                    {featureTab === 0 && 'Imágenes que la Facultad No Te Mostró'}
-                    {featureTab === 1 && 'Decide en Segundos. Vidas en Juego.'}
-                    {featureTab === 2 && 'Ve Lo que Otros Médicos No Ven'}
-                  </h2>
-                  <p className={styles.featuresBannerText}>
-                    {featureTab === 0 && 'Tomografías, ecografías y radiografías de urgencias reales. Cada error que evites aquí es una vida que salvas en guardia.'}
-                    {featureTab === 1 && 'En urgencias no hay tiempo para dudar. Te entrenamos bajo presión real para que tu criterio clínico sea instintivo y certero.'}
-                    {featureTab === 2 && 'El ojo clínico no se nace — se entrena. Detecta anomalías milimétricas que la mayoría de médicos junior pasa por alto.'}
-                  </p>
-                  <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.featuresBannerBtn}>
-                    Quiero entrenarme →
-                  </a>
-                </div>
-                <div className={styles.featuresBannerRight}>
-                  <Image
-                    src={featureTab === 0 ? '/anat1.jpeg' : featureTab === 1 ? '/anat2.jpeg' : '/anat3.jpeg'}
-                    alt="Anatomía"
-                    fill
-                    style={{ objectFit: 'cover' }}
-                  />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-            <div className={styles.featureDots}>
-              {[0, 1, 2].map((i) => (
-                <button key={i} className={`${styles.featureDot} ${featureTab === i ? styles.featureDotActive : ''}`} onClick={() => setFeatureTab(i)} />
-              ))}
+        {/* Features Section */}
+<section id="dolor" className={styles.features}>
+  <div className={styles.featuresBanner}>
+    <AnimatePresence mode="wait">
+      <motion.div
+        key={featureTab}
+        className={styles.featuresBannerInner}
+        initial={{ opacity: 0, x: 40 }}
+        animate={{ opacity: 1, x: 0 }}
+        exit={{ opacity: 0, x: -40 }}
+        transition={{ duration: 0.4 }}
+      >
+        <div className={styles.featuresBannerLeft}>
+          <div className={styles.featuresBannerLine} />
+          <h2 className={styles.featuresBannerTitle}>
+            {featureTab === 0 && 'Imágenes que la Facultad No Te Mostró'}
+            {featureTab === 1 && 'Decide en Segundos. Vidas en Juego.'}
+            {featureTab === 2 && 'Ve Lo que Otros Médicos No Ven'}
+          </h2>
+          <p className={styles.featuresBannerText}>
+            {featureTab === 0 && 'Tomografías, ecografías y radiografías de urgencias reales. Cada error que evites aquí es una vida que salvas en guardia.'}
+            {featureTab === 1 && 'En urgencias no hay tiempo para dudar. Te entrenamos bajo presión real para que tu criterio clínico sea instintivo y certero.'}
+            {featureTab === 2 && 'El ojo clínico no se nace — se entrena. Detecta anomalías milimétricas que la mayoría de médicos junior pasa por alto.'}
+          </p>
+          <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.featuresBannerBtn}>
+            Quiero entrenarme →
+          </a>
+
+          {/* Ángulos VSL uno abajo del otro */}
+          <div className={styles.vslAngulos}>
+            <div className={styles.vslAngulo}>
+              <span className={styles.vslAnguloNum}>01</span>
+              <div>
+                <h4>¿Estudias anatomía y sientes que memorizas sin entender?</h4>
+                <p>No es falta de inteligencia — es que nadie te enseñó a comprender <strong>antes</strong> de memorizar. En pocas semanas construirás una base sólida que te acompañe toda la carrera.</p>
+              </div>
+            </div>
+            <div className={styles.vslAngulo}>
+              <span className={styles.vslAnguloNum}>02</span>
+              <div>
+                <h4>El método A.N.A.T.O.M.I.A. 360°</h4>
+                <p>3 pilares: comprensión estructural, repetición inteligente e integración aplicada. Región por región — construyendo conocimiento acumulativo, no datos aislados.</p>
+              </div>
+            </div>
+            <div className={styles.vslAngulo}>
+              <span className={styles.vslAnguloNum}>03</span>
+              <div>
+                <h4>Por solo $14/mes — con garantía de 30 días</h4>
+                <p>Si aplicas el método y en 30 días no sientes que comprendes mejor la anatomía, te devolvemos el dinero. El riesgo no está en entrar — <strong>está en seguir estudiando sin estructura.</strong></p>
+              </div>
             </div>
           </div>
-        </section>
+        </div>
+
+        <div className={styles.featuresBannerRight}>
+          <Image
+            src={featureTab === 0 ? '/anat1.jpeg' : featureTab === 1 ? '/anat2.jpeg' : '/anat3.jpeg'}
+            alt="Anatomía"
+            fill
+            style={{ objectFit: 'cover' }}
+          />
+        </div>
+      </motion.div>
+    </AnimatePresence>
+
+    <div className={styles.featureDots}>
+      {[0, 1, 2].map((i) => (
+        <button key={i} className={`${styles.featureDot} ${featureTab === i ? styles.featureDotActive : ''}`} onClick={() => setFeatureTab(i)} />
+      ))}
+    </div>
+  </div>
+</section>
 
         {/* Reels */}
         <motion.section id="reels" className={styles.reelsSection} initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeInUp}>
@@ -494,15 +501,22 @@ export default function DiagnosticandoVidaLanding() {
             whileTap={{ cursor: "grabbing" }}
           >
             {[
-              { src: '/Reels_1.mp4', poster: '/poster-reel1.jpg' },
-              { src: '/reel2.mp4', poster: '/poster-reel2.jpg' },
-              { src: '/reel3.mp4', poster: '/poster-reel3.jpg' },
-              { src: '/reel4.mp4', poster: '/poster-reel4.jpg' },
-            ].map((reel, i) => (
-              <div key={i} className={styles.reelCard}>
-                <video className={styles.reelVideo} src={reel.src} poster={reel.poster} controls playsInline />
-              </div>
-            ))}
+  { src: '/Reels_1.mp4' },
+  { src: '/Reels_2.mp4' },
+  { src: '/Reels_3.mp4' },
+  { src: '/Reels_4.mp4' },
+].map((reel, i) => (
+  <div key={i} className={styles.reelCard}>
+    <video
+      className={styles.reelVideo}
+      src={reel.src}
+      autoPlay
+      muted
+      loop
+      playsInline
+    />
+  </div>
+))}
           </motion.div>
         </motion.section>
 
