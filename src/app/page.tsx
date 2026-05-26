@@ -442,30 +442,6 @@ export default function DiagnosticandoVidaLanding() {
             Quiero entrenarme →
           </a>
 
-          {/* Ángulos VSL uno abajo del otro */}
-          <div className={styles.vslAngulos}>
-            <div className={styles.vslAngulo}>
-              <span className={styles.vslAnguloNum}>01</span>
-              <div>
-                <h4>¿Estudias anatomía y sientes que memorizas sin entender?</h4>
-                <p>No es falta de inteligencia — es que nadie te enseñó a comprender <strong>antes</strong> de memorizar. En pocas semanas construirás una base sólida que te acompañe toda la carrera.</p>
-              </div>
-            </div>
-            <div className={styles.vslAngulo}>
-              <span className={styles.vslAnguloNum}>02</span>
-              <div>
-                <h4>El método A.N.A.T.O.M.I.A. 360°</h4>
-                <p>3 pilares: comprensión estructural, repetición inteligente e integración aplicada. Región por región — construyendo conocimiento acumulativo, no datos aislados.</p>
-              </div>
-            </div>
-            <div className={styles.vslAngulo}>
-              <span className={styles.vslAnguloNum}>03</span>
-              <div>
-                <h4>Por solo $14/mes — con garantía de 30 días</h4>
-                <p>Si aplicas el método y en 30 días no sientes que comprendes mejor la anatomía, te devolvemos el dinero. El riesgo no está en entrar — <strong>está en seguir estudiando sin estructura.</strong></p>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className={styles.featuresBannerRight}>
